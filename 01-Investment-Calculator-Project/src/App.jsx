@@ -11,14 +11,6 @@ const labels = [
     { value: 'duration', label: 'Duration' }
 ];
 
-const dummyData = [
-    { year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193' },
-    { year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193' },
-    { year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193' },
-    { year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193' }
-    , { year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193' }
-]
-
 const initialInvestmentState = {
     initialInvestment: 0,
     annualInvestment: 0,
