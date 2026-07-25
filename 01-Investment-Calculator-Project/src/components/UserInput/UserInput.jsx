@@ -11,7 +11,7 @@ export const UserInput = ({data, onHandleChange}) => {
                     <input
                         onChange={onHandleChange}
                         name={data.value}
-                        type="text"
+                        type="number"
                         required
                     />
                 </div>
