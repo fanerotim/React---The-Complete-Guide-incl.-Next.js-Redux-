@@ -2,56 +2,71 @@ import { Header } from "./components/Header/Header"
 import { UserInput } from "./components/UserInput/UserInput"
 import { Result } from "./components/Result/Result";
 import { useState } from "react";
+import { calculateInvestmentResults } from "./util/investment";
 
 const labels = [
-  {value: 'initial_investment', label: 'Initial investment'}, 
-  {value: 'annual_investment', label: 'Annual investment'}, 
-  {value: 'expected_return', label: 'Expected return'}, 
-  {value: 'duration', label: 'Duration'}
+    { value: 'initialInvestment', label: 'Initial investment' },
+    { value: 'annualInvestment', label: 'Annual investment' },
+    { value: 'expectedReturn', label: 'Expected return' },
+    { value: 'duration', label: 'Duration' }
 ];
 
 const dummyData = [
-  {year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193'},
-  {year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193'},
-  {year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193'},
-  {year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193'}
-  ,{year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193'}
+    { year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193' },
+    { year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193' },
+    { year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193' },
+    { year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193' }
+    , { year: 1, investment_value: '$13131313', interest: '$0530453', total_interest: '8989998', invested_capital: '$1398193' }
 ]
+
+const initialInvestmentState = {
+    initialInvestment: 0,
+    annualInvestment: 0,
+    expectedReturn: 0,
+    duration: 0
+}
 
 function App() {
 
-  const [investmentState, setInvestmentState] = useState({
-    initial_investment: 0,
-    annual_investment: 0,
-    expected_return: 0,
-    duration: 0
-  })
+    const [investmentState, setInvestmentState] = useState(initialInvestmentState)
+    const [annualData, setAnnualData] = useState([]);
 
-  const onHandleChange = (e) => {
-      setInvestmentState((prevState) => {
-        return {
-          ...prevState,
-          [e.target.name]: e.target.value
-        }
-      })
-  }
+    const onHandleChange = (e) => {
+        setInvestmentState((prevState) => {
+            return {
+                ...prevState,
+                [e.target.name]: Number(e.target.value)
+            }
+        })
+    }
 
-  return (
-    <>
-      <Header/>
-        <form id="user-input" className="input-group">
-            <UserInput 
-                data={[labels[0], labels[1]]}
-                onHandleChange={onHandleChange}  
-            />
-            <UserInput 
-                data={[labels[2], labels[3]]}
-                onHandleChange={onHandleChange}  
-            />
-        </form>
-      <Result data={dummyData} investmentState={investmentState}/>
-    </>
-  )
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const annualData = calculateInvestmentResults(investmentState);
+        setAnnualData((prevData) => annualData);
+
+    }
+
+    return (
+        <>
+            <Header />
+            <form
+                onSubmit={onSubmit}
+                id="user-input"
+            >
+                <UserInput
+                    data={[labels[0], labels[1]]}
+                    onHandleChange={onHandleChange}
+                />
+                <UserInput
+                    data={[labels[2], labels[3]]}
+                    onHandleChange={onHandleChange}
+                />
+                <input type="submit" hidden />
+            </form>
+            <Result data={annualData ?? annualData} investmentState={investmentState} />
+        </>
+    )
 }
 
 export default App
