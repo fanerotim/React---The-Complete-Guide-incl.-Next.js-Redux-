@@ -36,7 +36,6 @@ function App() {
         e.preventDefault();
         const annualData = calculateInvestmentResults(investmentState);
         setAnnualData((prevData) => annualData);
-
     }
 
     return (
