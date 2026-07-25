@@ -13,7 +13,6 @@ export const Result = ({ data, investmentState }) => {
                     <th>Invested Capital</th>
                 </tr>
 
-
                 {data.map((data, index) => (
                     <tr key={index}>
                         <td>{data.year}</td>
