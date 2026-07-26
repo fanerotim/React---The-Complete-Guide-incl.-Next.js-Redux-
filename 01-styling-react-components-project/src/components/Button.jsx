@@ -9,4 +9,7 @@ export const Button = styled.button`
     background-color: #f0b322;
     border-radius: 6px;
     border: none;
+    &:hover {
+        background-color: #f0920e; 
+    }
 `

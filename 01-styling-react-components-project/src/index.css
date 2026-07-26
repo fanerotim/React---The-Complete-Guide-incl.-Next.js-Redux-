@@ -25,7 +25,7 @@ button:focus {
   outline: none;
 }
 
-header {
+/* header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,9 +39,9 @@ header img {
   margin-bottom: 2rem;
   width: 11rem;
   height: 11rem;
-}
+} */
 
-header h1 {
+/* header h1 {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.4em;
@@ -56,9 +56,9 @@ header p {
   text-align: center;
   color: #a39191;
   margin: 0;
-}
+} */
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   header {
     margin-bottom: 4rem;
   }
@@ -66,9 +66,9 @@ header p {
   header h1 {
     font-size: 2.25rem;
   }
-}
+} */
 
-#auth-inputs {
+/* #auth-inputs {
   width: 100%;
   max-width: 28rem;
   padding: 2rem;
@@ -94,9 +94,9 @@ header p {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #6b7280;
-}
+} */
 
-.controls input {
+/* .controls input {
   width: 100%;
   padding: 0.75rem 1rem;
   line-height: 1.5;
@@ -115,7 +115,7 @@ input.invalid {
   color: #ef4444;
   border-color: #f73f3f;
   background-color: #fed2d2;
-}
+} */
 
 .actions {
   display: flex;
@@ -123,7 +123,7 @@ input.invalid {
   gap: 1rem;
 }
 
-.button {
+/* .button {
   padding: 1rem 2rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -136,7 +136,7 @@ input.invalid {
 
 .button:hover {
   background-color: #f0920e;
-}
+} */
 
 .text-button {
   color: #f0b322;
