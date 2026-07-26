@@ -7,5 +7,13 @@ export const Label = styled.label`
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #6b7280;
+    color: ${props => {
+        if (props.emailNotValid) {
+            return props.emailNotValid ? '#f87171' : '#6b7280'
+        }
+
+        if (props.passwordNotValid) {
+            return props.passwordNotValid ? '#f87171' : '#6b7280'
+        }
+    }};
 `
