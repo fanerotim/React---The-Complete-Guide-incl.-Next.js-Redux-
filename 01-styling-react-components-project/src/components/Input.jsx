@@ -6,11 +6,11 @@ export const Input = styled.input`
     line-height: 1.5;
     background-color: ${({ emailNotValid, passwordNotValid }) => {
         if (emailNotValid) {
-            return emailNotValid ? '#f87171' : '#374151';
+            return emailNotValid ? '#fed2d2' : '#374151';
         }
 
         if (passwordNotValid) {
-            return passwordNotValid ? '#f87171' : '#374151';
+            return passwordNotValid ? '#fed2d2' : '#374151';
         }
     }};
     
