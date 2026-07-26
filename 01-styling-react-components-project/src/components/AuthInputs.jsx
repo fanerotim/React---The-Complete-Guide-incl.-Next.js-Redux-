@@ -3,6 +3,7 @@ import { AuthInputContainer } from './AuthInputContainer';
 import { Controls } from './Controls';
 import { Label } from './Label';
 import { Input } from './Input';
+import { Button } from './Button';
 
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -67,7 +68,10 @@ export default function AuthInputs() {
         <button type="button" className="text-button">
           Create a new account
         </button>
-        <button className='button' onClick={handleLogin}>Sign In</button>
+        <Button onClick={handleLogin}>
+            Sign in
+        </Button>
+        {/* <button className='button' onClick={handleLogin}>Sign In</button> */}
       </div>
       {/* </div> */}
     </AuthInputContainer>
