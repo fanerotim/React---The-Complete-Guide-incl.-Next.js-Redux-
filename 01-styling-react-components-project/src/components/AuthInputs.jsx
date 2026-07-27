@@ -4,6 +4,7 @@ import { Controls } from './Controls';
 import { Label } from './Label';
 import { Input } from './Input';
 import { Button } from './Button';
+import InputGroup from './InputGroup';
 
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -62,6 +63,7 @@ export default function AuthInputs() {
             }
           />
         </p>
+        <InputGroup />
       </Controls>
       {/* </div> */}
       <div className="actions">
@@ -69,7 +71,7 @@ export default function AuthInputs() {
           Create a new account
         </button>
         <Button onClick={handleLogin}>
-            Sign in
+          Sign in
         </Button>
         {/* <button className='button' onClick={handleLogin}>Sign In</button> */}
       </div>
