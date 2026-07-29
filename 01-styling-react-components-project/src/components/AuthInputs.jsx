@@ -33,21 +33,28 @@ export default function AuthInputs() {
       <Controls>
         <p>
           {/* <label>Email</label> */}
-          <Label $emailNotValid={emailNotValid}>Email</Label>
+          {/* <Label $emailNotValid={emailNotValid}>Email</Label> */}
           {/* <input
             type="email"
             className={emailNotValid ? 'invalid' : undefined}
             onChange={(event) => handleInputChange('email', event.target.value)}
           /> */}
-          <Input
+          {/* <Input
             type="email"
             $emailNotValid={emailNotValid}
             onChange={(event) => handleInputChange('email', event.target.value)}
-          />
+          /> */}
+          <InputGroup
+            passwordNotValid={emailNotValid}
+            type="email"
+            onChange={(event) => handleInputChange('email', event.target.value)}
+          >
+            Email label
+          </InputGroup>
         </p>
         <p>
           {/* <label>Password</label> */}
-          <Label $passwordNotValid={passwordNotValid}>Password</Label>
+          {/* <Label $passwordNotValid={passwordNotValid}>Password</Label> */}
           {/* <input
             type="password"
             className={passwordNotValid ? 'invalid' : undefined}
@@ -55,15 +62,21 @@ export default function AuthInputs() {
               handleInputChange('password', event.target.value)
             }
           /> */}
-          <Input
+          {/* <Input
             type="password"
             $passwordNotValid={passwordNotValid}
             onChange={(event) =>
               handleInputChange('password', event.target.value)
             }
-          />
+          /> */}
+          <InputGroup
+            passwordNotValid={passwordNotValid}
+            type="password"
+            onChange={(event) => handleInputChange('password', event.target.value)}
+          >
+            Password label
+          </InputGroup>
         </p>
-        <InputGroup />
       </Controls>
       {/* </div> */}
       <div className="actions">
