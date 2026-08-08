@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import ResultModal from "./ResultModal";
 
 export default function TimerChallenge({ title, targetTime }) {
 
@@ -6,12 +7,14 @@ export default function TimerChallenge({ title, targetTime }) {
     const [timerStopped, settimerStopped] = useState(false);
     const [timePassed, setTimePassed] = useState(0);
     const intervalId = useRef();
+    const modalRef = useRef(null);
 
     const handleStartChallenge = () => {
 
         if (timerStarted) {
             clearInterval(intervalId.current);
-            settimerStopped(true);
+            settimerStopped(true)
+            modalRef.current.showModal();
         }
 
         setTimerStarted(true);
@@ -23,19 +26,22 @@ export default function TimerChallenge({ title, targetTime }) {
         }
 
         setTimeout(() => {
-            settimerStopped(true);
             clearInterval(intervalId.current);
+            settimerStopped(true);
+            console.log(modalRef);
+            modalRef.current.showModal();
         }, targetTime * 1000);
     }
 
     return (
         <section className="challenge">
             <h2>{title}</h2>
-            {timerStopped
-                ? timePassed < ((targetTime * 1000) / 4)
-                    ? <p>You won!</p>
-                    : <p>You lost!</p>
-                : ''}
+            <ResultModal
+                ref={modalRef}
+                result={timePassed < ((targetTime * 1000) / 4) ? 'won' : 'lost'}
+                targetTime={targetTime}
+                timePassed={timePassed}
+            />
             <p className="challenge-time">
                 {targetTime} second{targetTime > 1 ? 's' : ''}
             </p>
