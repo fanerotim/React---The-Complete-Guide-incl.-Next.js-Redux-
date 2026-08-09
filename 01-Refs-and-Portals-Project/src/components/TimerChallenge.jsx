@@ -14,7 +14,7 @@ export default function TimerChallenge({ title, targetTime }) {
         if (timerStarted) {
             clearInterval(intervalId.current);
             settimerStopped(true)
-            modalRef.current.showModal();
+            modalRef.current.displayModal();
         }
 
         setTimerStarted(true);
@@ -28,7 +28,7 @@ export default function TimerChallenge({ title, targetTime }) {
         setTimeout(() => {
             clearInterval(intervalId.current);
             settimerStopped(true);
-            modalRef.current.showModal();
+            modalRef.current.displayModal();
         }, targetTime * 1000);
     }
 
