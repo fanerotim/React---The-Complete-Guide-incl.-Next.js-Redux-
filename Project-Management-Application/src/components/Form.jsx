@@ -2,7 +2,7 @@ const Form = () => {
 
     return (
         <>
-            <form className="uppercase text-xs font-bold w-80 mb-80 flex flex-col gap-5">
+            <form className="uppercase text-xs font-bold w-2/5 mb-80 flex flex-col gap-5">
                 <div className="flex flex-col gap-2">
                     <label
                         className="text-stone-600" 

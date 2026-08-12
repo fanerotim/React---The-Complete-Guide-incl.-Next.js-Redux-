@@ -8,7 +8,7 @@ function App() {
     const [isFormOpen, setIsFormOpen] = useState(true);
 
     return (
-        <div className="flex grow gap-6 w-full min-h-dvh items-end mt-auto">
+        <div className="flex gap-20 w-full h-dvh items-end">
             <Sidebar />
             {isFormOpen
                 ? <Form />
