@@ -39,6 +39,14 @@ function App() {
         setShowProject(true);
     }
 
+    const deleteProjectHandler = (projectId) => {
+        setProjects((prevProjects) => {
+            return prevProjects.filter((project) => project.id !== projectId);
+        })
+
+        setShowProject(false);
+    }
+
     return (
         <>
             <div className="flex w-full h-dvh items-end">
@@ -51,7 +59,10 @@ function App() {
                     ? isFormOpen
                         ? <Form submitHandler={updateProjects} />
                         : <NoProjects clickHandler={formClickHandler} />
-                    : <Project project={selectedProject} />
+                    : <Project 
+                        project={selectedProject} 
+                        deleteProjectHandler={deleteProjectHandler}
+                        />
                 }
             </div>
         </>

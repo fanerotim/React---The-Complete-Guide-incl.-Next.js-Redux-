@@ -1,4 +1,4 @@
-const Project = ({ project }) => {
+const Project = ({ project, deleteProjectHandler }) => {
 
     return (
         <div className="flex w-2/3 h-full p-40 justify-between">
@@ -7,7 +7,9 @@ const Project = ({ project }) => {
                 <p className="text-gray-500 mb-6">{project.date}</p>
                 <p className="">{project.description}</p>
             </div>
-            <button className="self-start">Delete</button>
+            <button className="self-start" onClick={() => deleteProjectHandler(project.id)}>
+                Delete
+            </button>
         </div>
     )
 }
