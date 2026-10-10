@@ -3,6 +3,7 @@ import { useState } from "react";
 const Form = ({ submitHandler }) => {
 
     const [values, setValues] = useState({
+        id: Math.floor(Math.random() * 1000),
         title: '',
         description: '',
         date: ''

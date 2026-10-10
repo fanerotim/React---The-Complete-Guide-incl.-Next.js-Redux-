@@ -1,4 +1,5 @@
-const Sidebar = ({clickHandler, projects}) => {
+const Sidebar = ({clickHandler, projects, projectClickHandler }) => {
+
     return (
         <div className="w-[250px] mt-10 h-5/6 bg-stone-900 text-white rounded-tr-xl text-xl uppercase">
             <h1 className="font-bold ml-5 mt-10">Your projects</h1>
@@ -13,6 +14,7 @@ const Sidebar = ({clickHandler, projects}) => {
                 {projects.map((project, index) => {
                     return (
                         <li
+                            onClick={() => projectClickHandler(project.id)}
                             key={index}
                             className="ml-5 mt-5 hover:bg-stone-700 p-2 rounded-lg"
                         >
