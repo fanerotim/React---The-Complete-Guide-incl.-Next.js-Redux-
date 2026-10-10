@@ -17,6 +17,9 @@ function App() {
                 newProject
             ]
         })
+
+        // close the form after adding a new project
+        setIsFormOpen(false);
     }
 
     const formClickHandler = () => {
@@ -24,7 +27,7 @@ function App() {
     }
 
     return (
-        <div className="flex gap-6 justify-between w-full h-dvh items-end">
+        <div className="flex w-full h-dvh items-end">
             <Sidebar 
                 clickHandler={formClickHandler }
                 projects={projects}    

@@ -18,9 +18,9 @@ const Form = ({ submitHandler }) => {
     }
 
     return (
-        <>
+        <div className="w-full self-center justify-items-center">
             <form
-                className="uppercase text-xs font-bold w-2/5 mb-80 mr-40 flex flex-col gap-5">
+                className="uppercase text-xs font-bold w-2/5 flex flex-col gap-5">
 
                 <div className="">
                     <button onClick={(e) => submitHandler(e, values)}>Cancel</button>
@@ -78,7 +78,7 @@ const Form = ({ submitHandler }) => {
                     />
                 </div>
             </form>
-        </>
+        </div>
     )
 }
 

@@ -3,7 +3,7 @@ import logo from '../assets/no-projects.png'
 const NoProjects = ({clickHandler}) => {
 
     return (
-        <div className='flex flex-col justify-center items-center mt-[10rem] gap-6'>
+        <div className='w-full self-center justify-center flex flex-col items-center gap-6'>
             <img
                 className='w-[100px]'
                 src={logo}
