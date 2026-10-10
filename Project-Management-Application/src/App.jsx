@@ -10,6 +10,7 @@ function App() {
     const [projects, setProjects] = useState([]);
     const [showProject, setShowProject] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
+    const [tasks, setTasks] = useState([]);
 
     const updateProjects = (e, newProject) => {
         e.preventDefault();
@@ -47,6 +48,29 @@ function App() {
         setShowProject(false);
     }
 
+    const handleTaskSubmit = (e, newTask, projectId) => {
+        e.preventDefault();
+
+        if (tasks.length === 0) {
+            setTasks(() => {
+                return [
+                    { projectId: projectId, tasks: [newTask] }
+                ]
+            })
+        } else {
+            // TODO: OPTIMIZE THIS LOGIC
+            const newTasks = tasks.map(task => {
+                return task.projectId === projectId
+                    ? {projectId: projectId, tasks: [...task.tasks, newTask]}
+                    : task
+            })
+
+            setTasks(newTasks);
+        }
+    }
+
+    console.log(tasks);
+ 
     return (
         <>
             <div className="flex w-full h-dvh items-end">
@@ -59,10 +83,11 @@ function App() {
                     ? isFormOpen
                         ? <Form submitHandler={updateProjects} />
                         : <NoProjects clickHandler={formClickHandler} />
-                    : <Project 
-                        project={selectedProject} 
+                    : <Project
+                        project={selectedProject}
                         deleteProjectHandler={deleteProjectHandler}
-                        />
+                        handleTaskSubmit={handleTaskSubmit}
+                    />
                 }
             </div>
         </>
