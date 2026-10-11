@@ -6,7 +6,8 @@ const Form = ({ submitHandler }) => {
         id: Math.floor(Math.random() * 1000),
         title: '',
         description: '',
-        date: ''
+        date: '',
+        tasks: []
     })
 
     const handleValueChange = (e) => {

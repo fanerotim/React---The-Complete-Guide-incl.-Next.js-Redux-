@@ -10,7 +10,6 @@ function App() {
     const [projects, setProjects] = useState([]);
     const [showProject, setShowProject] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
-    const [tasks, setTasks] = useState([]);
 
     const updateProjects = (e, newProject) => {
         e.preventDefault();
@@ -51,26 +50,15 @@ function App() {
     const handleTaskSubmit = (e, newTask, projectId) => {
         e.preventDefault();
 
-        if (tasks.length === 0) {
-            setTasks(() => {
-                return [
-                    { projectId: projectId, tasks: [newTask] }
-                ]
-            })
-        } else {
-            // TODO: OPTIMIZE THIS LOGIC
-            const newTasks = tasks.map(task => {
-                return task.projectId === projectId
-                    ? {projectId: projectId, tasks: [...task.tasks, newTask]}
-                    : task
-            })
-
-            setTasks(newTasks);
-        }
+        setProjects((prevProjects) => prevProjects.map(project => {
+            return project.id === projectId
+                ? { ...project, tasks: [...project.tasks, newTask] }
+                : project
+        }))
+        // Update selectedProject to cause rerender inside Tasks component a see up to date tasks list
+        projectClickHandler(projectId)
     }
 
-    console.log(tasks);
- 
     return (
         <>
             <div className="flex w-full h-dvh items-end">

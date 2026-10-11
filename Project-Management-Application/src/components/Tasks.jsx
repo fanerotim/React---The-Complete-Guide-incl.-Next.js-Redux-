@@ -1,16 +1,19 @@
 import { useState } from "react";
 
-const Tasks = ({handleTaskSubmit, projectId}) => {
+const Tasks = ({
+    handleTaskSubmit,
+    project
+}) => {
 
     const [value, setValue] = useState('');
 
     const handleChange = (e) => {
         setValue((_) => e.target.value);
     }
-    
+
     return (
         <>
-            <form onSubmit={(e) => handleTaskSubmit(e, value, projectId)}>
+            <form onSubmit={(e) => handleTaskSubmit(e, value, project.id, handleChange)}>
                 <h1>Tasks</h1>
                 <input
                     type="text"
@@ -22,15 +25,15 @@ const Tasks = ({handleTaskSubmit, projectId}) => {
             </form>
 
             <div>
-                {/* {tasks.length > 0 ? (
+                {project?.tasks.length > 0 ? (
                     <ul>
-                        {tasks.map((task, index) => (
+                        {project?.tasks.map((task, index) => (
                             <li key={index}>{task}</li>
                         ))}
                     </ul>
                 ) : (
                     <p>No tasks available.</p>
-                )} */}
+                )}
             </div>
         </>
     )

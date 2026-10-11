@@ -1,6 +1,10 @@
 import Tasks from "./Tasks";
 
-const Project = ({ project, deleteProjectHandler, handleTaskSubmit }) => {
+const Project = ({
+    project,
+    deleteProjectHandler,
+    handleTaskSubmit
+}) => {
 
     return (
         <div className="flex w-full h-full p-40 flex-col align-center gap-10">
@@ -14,7 +18,10 @@ const Project = ({ project, deleteProjectHandler, handleTaskSubmit }) => {
                     Delete
                 </button>
             </div>
-            <Tasks handleTaskSubmit={handleTaskSubmit} projectId={project.id}/>
+            <Tasks
+                handleTaskSubmit={handleTaskSubmit}
+                project={project}
+            />
         </div>
     )
 }
